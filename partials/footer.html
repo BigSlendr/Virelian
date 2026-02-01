@@ -1,1 +1,15 @@
+<footer class="footer">
+	<div class="wrap">
+		<div style="display:flex; gap:14px; flex-wrap:wrap; justify-content:space-between;">
+			<div>© <span id="year"></span> Virelian</div>
+			<div style="display:flex; gap:14px;">
+				<a href="/legal/privacy/">Privacy</a>
+				<a href="/legal/terms/">Terms</a>
+			</div>
+		</div>
+	</div>
+</footer>
+<script>
+	document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 

@@ -1,1 +1,14 @@
+:root{
+	--bg: #0b0c0f;
+	--fg: #f4f4f5;
+	--muted: rgba(244,244,245,.72);
+	--line: rgba(244,244,245,.14);
+	--max: 1120px;
+	--pad: 20px;
+	--h1: clamp(2.0rem, 3.8vw, 3.0rem);
+	--h2: clamp(1.4rem, 2.5vw, 2.0rem);
+	--p: 1.02rem;
+	--small: .92rem;
+	--r: 18px;
+}
 
