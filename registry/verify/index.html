@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Credential Verification — Virelian</title>
+	<div data-include="/partials/head.html"></div>
+	<meta property="og:title" content="Credential Verification — Virelian">
+	<meta property="og:description" content="Verify a credential against the official Virelian registry.">
+	<meta property="og:url" content="https://virelian.org/registry/verify/">
+</head>
+<body>
+	<div data-include="/partials/header.html"></div>
+	<main class="container" role="main">
+		<section class="hero">
+			<p class="eyebrow">Registry</p>
+			<h1>Credential Verification</h1>
+			<p class="lede">Confirm credential status directly against the published Virelian registry.</p>
+		</section>
+		<hr class="rule" />
+		<section class="content">
+			<form id="verifyForm" class="verify-row">
+				<div class="field">
+					<label for="verifyId">Credential ID</label>
+					<input id="verifyId" class="input" type="text" placeholder="Enter credential ID" />
+				</div>
+				<button type="submit" class="btn btn-primary">Verify</button>
+			</form>
+			<div id="verificationResult"></div>
+			<p class="disclaimer">Only verification records published on virelian.org are authoritative.</p>
+		</section>
+	</main>
+	<div data-include="/partials/footer.html"></div>
+	<script src="/assets/js/verify.js" defer></script>
+</body>
+</html>

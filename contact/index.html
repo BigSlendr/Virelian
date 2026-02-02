@@ -9,72 +9,49 @@
 </head>
 <body>
 	<div data-include="/partials/header.html"></div>
-	
-	<main role="main">
-		<!-- Page Intro -->
-		<section class="page-intro">
-			<div class="container-reading">
-				<span class="label">GET IN TOUCH</span>
-				<h1>Contact</h1>
-				<p class="page-intro-text">For verification questions, institutional partnerships, or general inquiries, contact Virelian.</p>
-			</div>
+	<main class="container" role="main">
+		<section class="hero">
+			<p class="eyebrow">Contact</p>
+			<h1>Contact Virelian</h1>
+			<p class="lede">For verification questions, institutional partnerships, or general inquiries, contact Virelian.</p>
 		</section>
-
-		<!-- Contact Content -->
-		<section class="section">
-			<div class="container">
-				<div class="contact-layout">
-					
-					<!-- Contact Form -->
-					<div class="contact-form">
-						<h2>Send a Message</h2>
-						<form>
-							<div class="form-group">
-								<label for="name" class="form-label">Name</label>
-								<input type="text" id="name" name="name" class="form-input" required>
-							</div>
-							<div class="form-group">
-								<label for="email" class="form-label">Email</label>
-								<input type="email" id="email" name="email" class="form-input" required>
-							</div>
-							<div class="form-group">
-								<label for="topic" class="form-label">Topic</label>
-								<select id="topic" name="topic" class="form-select" required>
-									<option value="">Select a topic</option>
-									<option value="verification">Verification Inquiry</option>
-									<option value="partnership">Institutional Partnership</option>
-									<option value="standards">Standards Question</option>
-									<option value="general">General Inquiry</option>
-									<option value="other">Other</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="message" class="form-label">Message</label>
-								<textarea id="message" name="message" class="form-textarea" required></textarea>
-							</div>
-							<button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-						</form>
-					</div>
-
-					<!-- Contact Sidebar -->
-					<div class="contact-sidebar">
-						<h3>Contact Information</h3>
-						<ul>
-							<li>
-								<strong>General Inquiries</strong>
-								<p>contact@virelian.org</p>
-							</li>
-							<li>
-								<strong>Verification</strong>
-								<p>For credential verification questions or application status</p>
-							</li>
-							<li>
-								<strong>Partnerships</strong>
-								<p>For institutional collaboration or registry integration inquiries</p>
-							</li>
-						</ul>
-					</div>
-
+		<hr class="rule" />
+		<section class="content">
+			<div class="grid grid-2">
+				<div class="card panel">
+					<h2>Send a Message</h2>
+					<form>
+						<div class="field">
+							<label for="name">Name</label>
+							<input type="text" id="name" name="name" class="input" required>
+						</div>
+						<div class="field">
+							<label for="email">Email</label>
+							<input type="email" id="email" name="email" class="input" required>
+						</div>
+						<div class="field">
+							<label for="topic">Topic</label>
+							<select id="topic" name="topic" class="select" required>
+								<option value="">Select a topic</option>
+								<option value="verification">Verification Inquiry</option>
+								<option value="partnership">Institutional Partnership</option>
+								<option value="standards">Standards Question</option>
+								<option value="general">General Inquiry</option>
+								<option value="other">Other</option>
+							</select>
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea id="message" name="message" class="textarea" required></textarea>
+						</div>
+						<button type="submit" class="btn btn-primary">Send Message</button>
+					</form>
+				</div>
+				<div class="card">
+					<h2>Contact Information</h2>
+					<p><strong>General Inquiries:</strong> contact@virelian.org</p>
+					<p><strong>Verification:</strong> registry@virelian.org</p>
+					<p><strong>Partnerships:</strong> partnerships@virelian.org</p>
 				</div>
 			</div>
 		</section>

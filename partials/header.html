@@ -1,31 +1,24 @@
 <header class="site-header" role="banner">
-  <div class="header-inner">
-    <div class="header-logo">
-      <a href="/" aria-label="Virelian Home">
-        <img src="/assets/img/Virelian-Text.png" alt="Virelian" width="160" height="32">
-      </a>
+  <div class="topbar">
+    <div class="container">
+      <span class="topbar-title">Virelian</span>
+      <span class="topbar-tag">Independent Credentialing Authority</span>
     </div>
-    
-    <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    
-    <nav class="header-nav" role="navigation" aria-label="Main navigation">
-      <ul class="nav-links">
-        <li><a href="/standards/">Standards</a></li>
-        <li><a href="/registry/">Registry</a></li>
-        <li><a href="/governance/">Governance</a></li>
-        <li><a href="/research/">Research</a></li>
-        <li><a href="/publications/">Publications</a></li>
-        <li><a href="/about/">About</a></li>
-        <li><a href="/contact/">Contact</a></li>
-      </ul>
-      
-      <div class="nav-cta">
-        <a href="/registry/#verify" class="btn btn-secondary">Verify Credential</a>
-      </div>
-    </nav>
+  </div>
+  <div class="mainbar">
+    <div class="container">
+      <a class="wordmark" href="/" aria-label="Virelian Home">Virelian</a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav id="site-nav" class="site-nav" role="navigation" aria-label="Primary">
+        <a href="/about/">About</a>
+        <a href="/standards/">Standards</a>
+        <a href="/registry/">Registry</a>
+        <a href="/research/">Research</a>
+        <a href="/publications/">Publications</a>
+        <a href="/governance/">Governance</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="/registry/verify/">Verify Credential</a>
+    </div>
   </div>
 </header>
