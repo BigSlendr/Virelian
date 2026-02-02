@@ -4,11 +4,14 @@
 	--muted: rgba(244,244,245,.72);
 	--line: rgba(244,244,245,.14);
 	--max: 1120px;
-	--pad: 20px;
-	--h1: clamp(2.0rem, 3.8vw, 3.0rem);
-	--h2: clamp(1.4rem, 2.5vw, 2.0rem);
-	--p: 1.02rem;
-	--small: .92rem;
-	--r: 18px;
+	--pad: 24px;
+	--h1: clamp(2.4rem, 4.2vw, 3.5rem);
+	--h2: clamp(1.6rem, 2.8vw, 2.2rem);
+	--h3: clamp(1.2rem, 2.0vw, 1.6rem);
+	--p: 1.06rem;
+	--small: .94rem;
+	--r: 6px;
+	--serif: 'Georgia', 'Times New Roman', serif;
+	--sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 

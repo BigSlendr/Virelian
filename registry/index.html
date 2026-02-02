@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Public Registry — Virelian</title>
+	<div data-include="/partials/head.html"></div>
+	<meta property="og:title" content="Public Registry — Virelian">
+	<meta property="og:description" content="The Virelian Registry is designed to reduce impersonation and strengthen transparency for readers, editors, and partners.">
+	<meta property="og:url" content="https://virelian.org/registry/">
+</head>
+<body>
+	<div data-include="/partials/header.html"></div>
+	
+	<main role="main">
+		<!-- Page Intro -->
+		<section class="page-intro">
+			<div class="container-reading">
+				<span class="label">VERIFICATION & DIRECTORY</span>
+				<h1>Public Registry</h1>
+				<p class="page-intro-text">The Virelian Registry is designed to reduce impersonation and strengthen transparency for readers, editors, and partners.</p>
+			</div>
+		</section>
+
+		<!-- Verify Credential Section -->
+		<section class="section" id="verify">
+			<div class="container">
+				<div class="verification-form">
+					<h3>Verify Credential</h3>
+					<form>
+						<div class="form-group">
+							<label for="fullname" class="form-label">Full Name</label>
+							<input type="text" id="fullname" name="fullname" class="form-input" required>
+						</div>
+						<div class="form-group">
+							<label for="registryid" class="form-label">Registry ID</label>
+							<input type="text" id="registryid" name="registryid" class="form-input" placeholder="VRL-XXXX-XXXX" required>
+						</div>
+						<div class="form-group">
+							<label for="email" class="form-label">Email (optional)</label>
+							<input type="email" id="email" name="email" class="form-input">
+						</div>
+						<button type="submit" class="btn btn-primary" style="width: 100%;">Verify Credential</button>
+						<div class="form-note" style="display: none;">
+							<strong>Demonstration Interface</strong><br>
+							This demo interface is informational. Verification workflows may be implemented in later phases.
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+
+		<!-- Registry Principles -->
+		<section class="section">
+			<div class="container-reading">
+				<h2>Registry Principles</h2>
+				<ul class="principles-list">
+					<li>Public accountability</li>
+					<li>Minimal necessary disclosure</li>
+					<li>Renewal-based accuracy</li>
+					<li>Clear dispute pathways</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- How the Registry Works -->
+		<section class="section">
+			<div class="container-reading">
+				<h2>How the Registry Works</h2>
+				<p>The Virelian Registry serves as a public-facing directory of verified contributors who have completed the credentialing process and maintain active standing. Registry listings include name, credential status, issue date, and renewal status.</p>
+				<p>Listings are searchable by name or Registry ID. Contributors are responsible for maintaining accurate contact information and notifying Virelian of any changes in professional standing that may affect credential validity.</p>
+				<p>Registry inclusion is subject to annual review and requires periodic renewal to ensure ongoing alignment with published standards.</p>
+			</div>
+		</section>
+	</main>
+
+	<div data-include="/partials/footer.html"></div>
+</body>
+</html>
