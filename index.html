@@ -10,50 +10,50 @@
 <body>
 	<div data-include="/partials/header.html"></div>
 	
-	<main role="main">
+	<main role="main" class="main-content">
 		<!-- Hero Section -->
-		<section class="hero">
+		<section class="hero hero-landing">
 			<div class="container">
-				<span class="label">INDEPENDENT CREDENTIALING AUTHORITY</span>
+				<span class="label">Independent Credentialing Authority</span>
 				<h1>Advancing Standards in Independent Journalism</h1>
 				<p class="hero-subtitle">Virelian supports journalists, freelancers, and contributors through verification, ethics, and a public registry designed to strengthen trust in modern reporting.</p>
 				<div class="hero-actions">
-					<a href="/standards/" class="btn btn-primary">View Standards</a>
-					<a href="/registry/" class="btn btn-secondary">Access the Registry</a>
+					<a href="/registry/" class="btn btn-primary-dark">Access the Registry</a>
+					<a href="/standards/" class="hero-link">View Standards</a>
 				</div>
+				<p class="hero-trust">Verification • Ethics • Public Registry • Research</p>
 			</div>
 		</section>
 
-		<!-- Institutional Highlights -->
+		<!-- What We Do -->
 		<section class="section">
 			<div class="container">
-				<div class="grid-4">
-					<div class="highlight-card">
-						<h3>Credentialing Framework</h3>
-						<p>A structured pathway for identity verification and professional standing.</p>
-					</div>
-					<div class="highlight-card">
-						<h3>Ethics & Accountability</h3>
-						<p>Clear standards aligned with public trust and transparent governance.</p>
-					</div>
-					<div class="highlight-card">
-						<h3>Public Registry</h3>
-						<p>A searchable directory designed to reduce impersonation and misrepresentation.</p>
-					</div>
-					<div class="highlight-card">
-						<h3>Research & Briefings</h3>
-						<p>Institutional publications focused on modern media integrity.</p>
-					</div>
+				<div class="section-header">
+					<span class="label">Institutional Focus</span>
+					<h2>What We Do</h2>
+					<p class="section-intro">Virelian establishes verification standards and public accountability mechanisms for independent journalism.</p>
 				</div>
-			</div>
-		</section>
-
-		<!-- Statement of Independence -->
-		<section class="statement-band">
-			<div class="container">
-				<div class="statement-content">
-					<h2>Statement of Independence</h2>
-					<p>Virelian operates as an independent standards and credentialing authority. Our work is designed to be neutral, consistent, and publicly accountable. We do not serve as a political organization, advocacy group, or commercial newsroom.</p>
+				<div class="grid-4">
+					<div class="card card-shadow">
+						<div class="card-label">Framework</div>
+						<h3 class="card-title">Credentialing Framework</h3>
+						<p class="card-body">A structured pathway for identity verification and professional standing.</p>
+					</div>
+					<div class="card card-shadow">
+						<div class="card-label">Governance</div>
+						<h3 class="card-title">Ethics & Accountability</h3>
+						<p class="card-body">Clear standards aligned with public trust and transparent oversight.</p>
+					</div>
+					<div class="card card-shadow">
+						<div class="card-label">Registry</div>
+						<h3 class="card-title">Public Registry</h3>
+						<p class="card-body">A searchable directory designed to reduce impersonation and misrepresentation.</p>
+					</div>
+					<div class="card card-shadow">
+						<div class="card-label">Research</div>
+						<h3 class="card-title">Research & Briefings</h3>
+						<p class="card-body">Institutional publications focused on modern media integrity.</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -62,33 +62,69 @@
 		<section class="section">
 			<div class="container">
 				<div class="section-header">
-					<span class="label">PROCESS OVERVIEW</span>
+					<span class="label">Process</span>
 					<h2>How Verification Works</h2>
 				</div>
-				<div class="steps">
-					<div class="step">
-						<div class="step-number">1</div>
+				<ol class="steps-list">
+					<li>
 						<h3>Identity Confirmation</h3>
 						<p>Applicants provide documentation to establish authentic identity and professional context.</p>
-					</div>
-					<div class="step">
-						<div class="step-number">2</div>
+					</li>
+					<li>
 						<h3>Professional Context Review</h3>
 						<p>Standards committee evaluates work history, ethics alignment, and public accountability.</p>
-					</div>
-					<div class="step">
-						<div class="step-number">3</div>
-						<h3>Registry Listing & Renewal</h3>
+					</li>
+					<li>
+						<h3>Credential Issuance & Registry Entry</h3>
 						<p>Approved contributors receive registry inclusion subject to periodic review and renewal.</p>
-					</div>
-				</div>
+					</li>
+				</ol>
 			</div>
 		</section>
 
-		<!-- Contact CTA -->
+		<!-- Statement of Independence -->
+		<section class="statement-band">
+			<div class="container-reading">
+				<div class="seal-mark" role="img" aria-label="Virelian seal">V</div>
+				<h2>Statement of Independence</h2>
+				<p>Virelian operates as an independent standards and credentialing authority. Our work is designed to be neutral, consistent, and publicly accountable. We do not serve as a political organization, advocacy group, or commercial newsroom.</p>
+			</div>
+		</section>
+
+		<!-- Registry Spotlight -->
 		<section class="section">
-			<div class="container-reading text-center">
-				<p style="font-size: 1.0625rem; line-height: 1.7; color: var(--color-soft-ink);">For inquiries regarding membership pathways, verification processes, or institutional partnerships, <a href="/contact/">contact Virelian</a>.</p>
+			<div class="container">
+				<div class="section-header">
+					<span class="label">Registry Spotlight</span>
+					<h2>Verification Records</h2>
+					<p class="section-intro">Highlighted registry entries are drawn from the public record for demonstration.</p>
+				</div>
+				<div id="registrySpotlight" class="spotlight-grid"></div>
+				<p class="muted-caption mt-md">Example profiles shown for demonstration.</p>
+			</div>
+		</section>
+
+		<!-- Research & Publications -->
+		<section class="section">
+			<div class="container">
+				<div class="section-header">
+					<span class="label">Institutional Library</span>
+					<h2>Research & Publications</h2>
+				</div>
+				<div class="teaser-grid">
+					<div class="card">
+						<div class="card-label">Research</div>
+						<h3 class="card-title">Research Briefings on Media Integrity</h3>
+						<p class="card-body">Analytical briefings on identity verification, disclosure frameworks, and modern reporting risks.</p>
+						<a class="btn btn-secondary" href="/research/">Explore Research</a>
+					</div>
+					<div class="card">
+						<div class="card-label">Publications</div>
+						<h3 class="card-title">Standards Updates and Institutional Notes</h3>
+						<p class="card-body">Published updates on credentialing standards, registry policy, and governance disclosures.</p>
+						<a class="btn btn-secondary" href="/publications/">View Publications</a>
+					</div>
+				</div>
 			</div>
 		</section>
 	</main>
@@ -96,4 +132,3 @@
 	<div data-include="/partials/footer.html"></div>
 </body>
 </html>
-
