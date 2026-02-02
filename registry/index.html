@@ -10,41 +10,28 @@
 <body>
 	<div data-include="/partials/header.html"></div>
 	
-	<main role="main">
-		<!-- Page Intro -->
-		<section class="page-intro">
+	<main role="main" class="main-content">
+		<!-- Page Hero -->
+		<section class="page-hero">
 			<div class="container-reading">
 				<span class="label">VERIFICATION & DIRECTORY</span>
 				<h1>Public Registry</h1>
-				<p class="page-intro-text">The Virelian Registry is designed to reduce impersonation and strengthen transparency for readers, editors, and partners.</p>
+				<p class="page-hero-text">The Virelian Registry is designed to reduce impersonation, confirm credentials, and provide a public reference for verified press associates.</p>
 			</div>
 		</section>
 
-		<!-- Verify Credential Section -->
-		<section class="section" id="verify">
+		<!-- Registry Search -->
+		<section class="section">
 			<div class="container">
-				<div class="verification-form">
-					<h3>Verify Credential</h3>
-					<form>
-						<div class="form-group">
-							<label for="fullname" class="form-label">Full Name</label>
-							<input type="text" id="fullname" name="fullname" class="form-input" required>
-						</div>
-						<div class="form-group">
-							<label for="registryid" class="form-label">Registry ID</label>
-							<input type="text" id="registryid" name="registryid" class="form-input" placeholder="VRL-XXXX-XXXX" required>
-						</div>
-						<div class="form-group">
-							<label for="email" class="form-label">Email (optional)</label>
-							<input type="email" id="email" name="email" class="form-input">
-						</div>
-						<button type="submit" class="btn btn-primary" style="width: 100%;">Verify Credential</button>
-						<div class="form-note" style="display: none;">
-							<strong>Demonstration Interface</strong><br>
-							This demo interface is informational. Verification workflows may be implemented in later phases.
-						</div>
-					</form>
+				<div class="registry-search">
+					<div class="form-group">
+						<label class="form-label" for="registrySearch">Search by name or credential ID</label>
+						<input type="search" id="registrySearch" class="form-input" placeholder="Search by name or credential ID" aria-label="Search the public registry">
+					</div>
+					<a href="/registry/verify/" class="btn btn-secondary">Verify Credential</a>
 				</div>
+				<p class="registry-meta" id="registryUpdated">Updated: —</p>
+				<div id="registryList" class="registry-grid"></div>
 			</div>
 		</section>
 
@@ -66,12 +53,23 @@
 			<div class="container-reading">
 				<h2>How the Registry Works</h2>
 				<p>The Virelian Registry serves as a public-facing directory of verified contributors who have completed the credentialing process and maintain active standing. Registry listings include name, credential status, issue date, and renewal status.</p>
-				<p>Listings are searchable by name or Registry ID. Contributors are responsible for maintaining accurate contact information and notifying Virelian of any changes in professional standing that may affect credential validity.</p>
+				<p>Listings are searchable by name or Credential ID. Contributors are responsible for maintaining accurate contact information and notifying Virelian of any changes in professional standing that may affect credential validity.</p>
 				<p>Registry inclusion is subject to annual review and requires periodic renewal to ensure ongoing alignment with published standards.</p>
+			</div>
+		</section>
+
+		<section class="section">
+			<div class="container-reading">
+				<div class="callout">
+					<h2>Apply for Verification</h2>
+					<p>Credentialing is open to independent journalists, contributors, and investigators seeking formal verification. Applications are reviewed by the standards committee.</p>
+					<a href="/registry/apply/" class="btn btn-primary">Begin Application</a>
+				</div>
 			</div>
 		</section>
 	</main>
 
 	<div data-include="/partials/footer.html"></div>
+	<script src="/assets/js/registry.js" defer></script>
 </body>
 </html>

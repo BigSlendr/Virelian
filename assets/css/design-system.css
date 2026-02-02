@@ -9,12 +9,14 @@
 
 :root {
   /* Colors */
-  --color-ivory: #F7F3EB;
-  --color-ink: #0E0E0E;
-  --color-soft-ink: #2A2A2A;
-  --color-muted-gray: #6B6B6B;
-  --color-hairline: rgba(0, 0, 0, 0.12);
-  --color-gold: #B89B5E;
+  --color-paper: #F6F2ED;
+  --color-ink: #101214;
+  --color-soft-ink: #2B2F36;
+  --color-muted-gray: #6C7178;
+  --color-hairline: rgba(16, 18, 20, 0.12);
+  --color-accent: #1F3E6A;
+  --color-accent-dark: #172E4F;
+  --color-accent-light: rgba(31, 62, 106, 0.12);
 
   /* Typography */
   --font-heading: 'Cormorant Garamond', serif;
@@ -60,7 +62,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--color-soft-ink);
-  background-color: var(--color-ivory);
+  background-color: var(--color-paper);
 }
 
 /* ============================================
@@ -110,7 +112,7 @@ p:last-child {
 }
 
 a {
-  color: var(--color-ink);
+  color: var(--color-accent);
   text-decoration: underline;
   text-decoration-color: var(--color-hairline);
   text-underline-offset: 0.2em;
@@ -118,7 +120,8 @@ a {
 }
 
 a:hover {
-  text-decoration-color: var(--color-ink);
+  color: var(--color-accent-dark);
+  text-decoration-color: var(--color-accent-dark);
 }
 
 a:focus-visible {
@@ -177,14 +180,14 @@ li {
 }
 
 .btn-primary {
-  background-color: var(--color-ink);
-  color: var(--color-ivory);
-  border: 1px solid var(--color-ink);
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  border: 1px solid var(--color-accent);
 }
 
 .btn-primary:hover {
-  background-color: var(--color-soft-ink);
-  border-color: var(--color-soft-ink);
+  background-color: var(--color-accent-dark);
+  border-color: var(--color-accent-dark);
 }
 
 .btn-secondary {
@@ -195,7 +198,7 @@ li {
 
 .btn-secondary:hover {
   background-color: var(--color-ink);
-  color: var(--color-ivory);
+  color: #FFFFFF;
 }
 
 .btn:focus-visible {
@@ -251,8 +254,8 @@ li {
 .form-select:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--color-ink);
-  box-shadow: 0 0 0 3px rgba(14, 14, 14, 0.1);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-light);
 }
 
 .form-textarea {
@@ -369,11 +372,11 @@ details p {
    ============================================ */
 
 .accent-gold {
-  color: var(--color-gold);
+  color: var(--color-accent);
 }
 
 .border-gold {
-  border-color: var(--color-gold);
+  border-color: var(--color-accent);
 }
 
 /* ============================================
