@@ -1,6 +1,6 @@
 const applyForm = document.getElementById('applyForm');
-const applyLink = document.getElementById('applyMailto');
 const credentialField = document.getElementById('credentialId');
+const applyStatus = document.getElementById('applyStatus');
 
 const CREDENTIAL_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
@@ -17,37 +17,49 @@ function generateCredentialID() {
   return Array.from(values, (value) => CREDENTIAL_CHARS[value % CREDENTIAL_CHARS.length]).join('');
 }
 
-function buildMailto(data) {
-  const body = [
-    `Credential ID: ${data.get('credentialId') || ''}`,
-    `Full Name: ${data.get('fullName') || ''}`,
-    `Location: ${data.get('location') || ''}`,
-    `Role: ${data.get('role') || ''}`,
-    `Portfolio Links: ${data.get('portfolio') || ''}`,
-    `Outlet/Clients: ${data.get('outlets') || ''}`,
-    `Statement: ${data.get('statement') || ''}`
-  ].join('\n');
+async function submitApplication(form) {
+  const payload = Object.fromEntries(new FormData(form).entries());
 
-  const subject = 'Virelian Verification Application';
-  return `mailto:registry@virelian.org?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const response = await fetch('/api/sendApplicationEmail', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    const { error } = await response.json().catch(() => ({ error: 'Unable to submit the application.' }));
+    throw new Error(error || 'Unable to submit the application.');
+  }
+
+  return response.json();
 }
 
-if (applyForm && applyLink) {
-  const updateLink = () => {
-    const data = new FormData(applyForm);
-    applyLink.href = buildMailto(data);
-  };
-
+if (applyForm) {
   if (credentialField) {
     credentialField.value = generateCredentialID();
   }
 
-  updateLink();
-
-  applyForm.addEventListener('input', updateLink);
-  applyForm.addEventListener('submit', (event) => {
+  applyForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    updateLink();
-    window.location.href = applyLink.href;
+    if (applyStatus) {
+      applyStatus.textContent = 'Submitting your application...';
+    }
+
+    try {
+      await submitApplication(applyForm);
+      if (applyStatus) {
+        applyStatus.textContent = 'Application submitted. A confirmation email has been sent.';
+      }
+      applyForm.reset();
+      if (credentialField) {
+        credentialField.value = generateCredentialID();
+      }
+    } catch (error) {
+      if (applyStatus) {
+        applyStatus.textContent = error.message || 'Unable to submit the application.';
+      }
+    }
   });
 }

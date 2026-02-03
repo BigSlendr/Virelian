@@ -5,6 +5,10 @@ const signInStatus = document.getElementById('signInStatus');
 const profileForm = document.getElementById('profileForm');
 const profileStatus = document.getElementById('profileStatus');
 const profilePreview = document.getElementById('profilePreview');
+const credentialStatus = document.getElementById('credentialStatus');
+const credentialSummaryId = document.getElementById('credentialSummaryId');
+const credentialSummaryUpdated = document.getElementById('credentialSummaryUpdated');
+const credentialSummaryPublications = document.getElementById('credentialSummaryPublications');
 
 const fields = {
   name: document.getElementById('profileName'),
@@ -23,6 +27,7 @@ const DEFAULT_EMAIL = 'local@virelian.org';
 const CREDENTIAL_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
 let currentEmail = localStorage.getItem(SIGNIN_KEY) || DEFAULT_EMAIL;
+let reviewRequested = false;
 
 function generateCredentialID() {
   const values = new Uint32Array(7);
@@ -43,6 +48,36 @@ function parseList(value) {
     .split(/\n|,/)
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+function formatDate() {
+  return new Date().toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+
+function renderSummary(data) {
+  if (!credentialStatus || !credentialSummaryId || !credentialSummaryUpdated || !credentialSummaryPublications) {
+    return;
+  }
+
+  const publications = parseList(data?.publications);
+  const statusLabel = reviewRequested
+    ? 'Review requested'
+    : data?.name
+      ? 'Profile updated'
+      : 'Profile draft';
+
+  credentialStatus.textContent = statusLabel;
+  credentialStatus.classList.toggle('success', Boolean(data?.name));
+  credentialSummaryId.textContent = data?.credential || '—';
+  credentialSummaryUpdated.textContent = formatDate();
+
+  credentialSummaryPublications.innerHTML = publications.length
+    ? publications.map((publication) => `<li>${publication}</li>`).join('')
+    : '<li class="muted">No publications listed.</li>';
 }
 
 function renderPreview(data) {
@@ -152,6 +187,7 @@ if (signInForm && signInEmail && signInStatus) {
     saveUsers(users);
     populateForm(user);
     renderPreview(user);
+    renderSummary(user);
     signInStatus.textContent = `Signed in as ${email}.`;
   });
 }
@@ -162,9 +198,12 @@ if (profileForm) {
   saveUsers(users);
   populateForm(activeUser);
   renderPreview(activeUser);
+  renderSummary(activeUser);
 
   profileForm.addEventListener('input', () => {
-    renderPreview(getProfileData());
+    const data = getProfileData();
+    renderPreview(data);
+    renderSummary(data);
   });
 
   profileForm.addEventListener('submit', (event) => {
@@ -181,6 +220,7 @@ if (profileForm) {
     usersUpdate[currentEmail] = updated;
     saveUsers(usersUpdate);
     renderPreview(updated);
+    renderSummary(updated);
     if (profileStatus) {
       profileStatus.textContent = 'Profile saved locally in this browser.';
     }
@@ -189,6 +229,8 @@ if (profileForm) {
 
 if (submitReviewButton && profileStatus) {
   submitReviewButton.addEventListener('click', () => {
+    reviewRequested = true;
+    renderSummary(getProfileData());
     profileStatus.textContent = 'Review request submitted. Our team will reach out for verification.';
   });
 }
