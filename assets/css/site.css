@@ -31,8 +31,9 @@
 
 .topbar {
   border-bottom: 1px solid var(--rule);
-  background: var(--panel);
+  background: linear-gradient(to bottom, #f9fafb 0%, #f5f6f7 100%);
   font-size: 0.85rem;
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
 .topbar .container {
@@ -170,6 +171,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  border-bottom: 2px solid rgba(248, 250, 252, 0.1);
 }
 
 .hero-dark::before {
@@ -283,11 +285,15 @@
 }
 
 .content:nth-of-type(even) {
-  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+  background: linear-gradient(to bottom, #fafafa 0%, #f5f5f5 100%);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding-top: var(--s-7);
 }
 
 .content:nth-of-type(odd) {
   background: #ffffff;
+  padding-top: var(--s-6);
 }
 
 .content-pad {
@@ -321,7 +327,20 @@
 }
 
 .section-title {
-  margin-bottom: var(--s-3);
+  margin-bottom: var(--s-4);
+  position: relative;
+  padding-bottom: var(--s-3);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
+  border-radius: 2px;
 }
 
 .section-gap {
@@ -331,6 +350,7 @@
 .grid {
   display: grid;
   gap: var(--s-5);
+  margin-top: var(--s-6);
 }
 
 .grid-2 {
@@ -355,6 +375,14 @@
   display: inline-flex;
   margin-top: var(--s-3);
   font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.card-link:hover {
+  color: #003f99;
+  transform: translateX(4px);
 }
 
 .steps-list {
