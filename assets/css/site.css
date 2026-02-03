@@ -5,21 +5,28 @@
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--s-4);
+  padding: 0 var(--s-5);
 }
 
 @media (min-width: 900px) {
   .container {
-    padding: 0 var(--s-5);
+    padding: 0 var(--s-6);
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 var(--s-7);
   }
 }
 
 .site-header {
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 2px solid var(--rule);
   background: var(--paper);
   position: sticky;
   top: 0;
   z-index: 50;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .topbar {
@@ -121,10 +128,10 @@
 }
 
 .site-footer {
-  border-top: 1px solid var(--rule);
+  border-top: 2px solid var(--rule);
   margin-top: var(--s-8);
   padding: var(--s-6) 0;
-  background: var(--paper);
+  background: linear-gradient(to bottom, #fafafa 0%, #f5f5f5 100%);
 }
 
 .footer-grid {
@@ -272,10 +279,22 @@
 
 .content {
   padding-bottom: var(--s-7);
+  position: relative;
+}
+
+.content:nth-of-type(even) {
+  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+}
+
+.content:nth-of-type(odd) {
+  background: #ffffff;
 }
 
 .content-pad {
   padding: var(--s-7) 0;
+  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 .section-split {
@@ -291,7 +310,8 @@
 .section-media img {
   width: 100%;
   border-radius: var(--radius-md);
-  box-shadow: 0 28px 64px rgba(15, 23, 42, 0.22);
+  border: 2px solid var(--rule);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
 }
 
 @media (min-width: 900px) {
@@ -400,25 +420,34 @@
 
 .step-item {
   display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: var(--s-3);
-  padding: var(--s-4);
-  border: 1px solid var(--rule);
+  grid-template-columns: 40px 1fr;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border: 2px solid var(--rule);
   border-radius: var(--radius-md);
   background: var(--paper);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.step-item:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.08);
 }
 
 .step-number {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: var(--panel);
-  border: 1px solid var(--rule);
+  background: linear-gradient(135deg, var(--accent) 0%, #003f99 100%);
+  border: 2px solid var(--accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  color: var(--ink);
+  color: #ffffff;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0, 82, 204, 0.2);
 }
 
 .registry-tools {
