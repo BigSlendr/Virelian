@@ -7,9 +7,12 @@
   --ink: #111111;
   --muted: #4b5563;
   --rule: #e5e7eb;
+  --rule-hover: #cbd5e1;
   --panel: #f9fafb;
   --accent: #0052cc;
+  --accent-hover: #003f99;
   --accent-ink: #ffffff;
+  --accent-bg-hover: #f0f7ff;
   --focus: #2563eb;
   --danger: #b91c1c;
 
@@ -68,7 +71,7 @@ a {
 }
 
 a:hover {
-  color: #003f99;
+  color: var(--accent-hover);
 }
 
 a:focus-visible,
@@ -153,8 +156,8 @@ li {
 }
 
 .btn-primary:hover {
-  background: #0044aa;
-  border-color: #0044aa;
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
   color: var(--accent-ink);
   box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
   transform: translateY(-1px);
@@ -167,9 +170,9 @@ li {
 }
 
 .btn-secondary:hover {
-  color: #003f99;
-  border-color: #003f99;
-  background: #f0f7ff;
+  color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  background: var(--accent-bg-hover);
 }
 
 .field {
@@ -213,7 +216,7 @@ li {
 }
 
 .card:hover {
-  border-color: #cbd5e1;
+  border-color: var(--rule-hover);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transform: translateY(-2px);
 }

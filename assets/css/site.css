@@ -381,7 +381,7 @@
 }
 
 .card-link:hover {
-  color: #003f99;
+  color: var(--accent-hover);
   transform: translateX(4px);
 }
 
@@ -467,7 +467,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent) 0%, #003f99 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
   border: 2px solid var(--accent);
   display: inline-flex;
   align-items: center;
