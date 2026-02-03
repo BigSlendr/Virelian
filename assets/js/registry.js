@@ -33,27 +33,8 @@ function renderRegistry(records) {
 
     if (registryTableBody) {
       const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${record.name}</td>
-        <td>${record.credential}</td>
-        <td><span class="badge success">${record.status}</span></td>
-        <td>${record.id}</td>
-        <td><a href="${verifyLink}">Verify</a></td>
-      `;
+      row.innerHTML = `<td><a href="${verifyLink}">${record.id}</a></td>`;
       registryTableBody.appendChild(row);
-    }
-
-    if (registryCards) {
-      const card = document.createElement('div');
-      card.className = 'registry-card';
-      card.innerHTML = `
-        <h3>${record.name}</h3>
-        <p><strong>Credential:</strong> ${record.credential}</p>
-        <p><strong>Status:</strong> ${record.status}</p>
-        <p><strong>Credential ID:</strong> ${record.id}</p>
-        <a href="${verifyLink}">Verify</a>
-      `;
-      registryCards.appendChild(card);
     }
   });
 }
@@ -67,11 +48,7 @@ function applySearch() {
   }
 
   const filtered = registryRecords.filter((record) => {
-    return (
-      record.name.toLowerCase().includes(query) ||
-      record.id.toLowerCase().includes(query) ||
-      record.credential.toLowerCase().includes(query)
-    );
+    return record.id.toLowerCase().includes(query);
   });
 
   renderRegistry(filtered);

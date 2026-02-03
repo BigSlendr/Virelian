@@ -398,6 +398,22 @@
   gap: var(--s-6);
 }
 
+.auth-card {
+  border: 1px solid var(--rule);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.auth-heading {
+  margin-bottom: var(--s-3);
+  font-size: 1.4rem;
+}
+
+.auth-note {
+  margin-top: var(--s-2);
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
 .profile-card {
   border: 1px solid var(--rule);
   border-radius: var(--radius-md);
@@ -524,10 +540,10 @@
 
 @media (max-width: 900px) {
   .registry-table {
-    display: none;
+    display: block;
   }
 
   .registry-cards {
-    display: grid;
+    display: none;
   }
 }
