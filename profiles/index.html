@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reporter Portal — Virelian</title>
+  <div data-include="/partials/head.html"></div>
+  <meta property="og:title" content="Reporter Portal — Virelian">
+  <meta property="og:description" content="Sign in to manage your Virelian journalist profile and publications.">
+  <meta property="og:url" content="https://virelian.org/profiles/">
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+  <main class="container" role="main">
+    <section class="hero">
+      <p class="eyebrow">Reporter Portal</p>
+      <h1>Maintain your credentialed profile</h1>
+      <p class="lede">Sign in to update your work history, beats, and publications. Your public snapshot is used during credential verification.</p>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="content portal-grid">
+      <div>
+        <div class="card">
+          <h2>Sign in</h2>
+          <form id="signInForm">
+            <div class="field">
+              <label for="signInEmail">Email</label>
+              <input id="signInEmail" class="input" type="email" placeholder="you@newsroom.com" required />
+            </div>
+            <div class="field">
+              <label for="signInPassword">Password</label>
+              <input id="signInPassword" class="input" type="password" placeholder="••••••••" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Sign in</button>
+            <p id="signInStatus" class="muted"></p>
+          </form>
+        </div>
+
+        <div class="card section-gap">
+          <h2>Profile details</h2>
+          <form id="profileForm">
+            <div class="field">
+              <label for="profileName">Full name</label>
+              <input id="profileName" class="input" type="text" placeholder="Full name" required />
+            </div>
+            <div class="field">
+              <label for="profileCredential">Credential ID</label>
+              <input id="profileCredential" class="input" type="text" placeholder="V7K4M2Q" required />
+            </div>
+            <div class="field">
+              <label for="profileOutlet">Primary outlet</label>
+              <input id="profileOutlet" class="input" type="text" placeholder="Independent" />
+            </div>
+            <div class="field">
+              <label for="profileBio">Short bio</label>
+              <textarea id="profileBio" class="textarea" placeholder="Short professional bio"></textarea>
+            </div>
+            <div class="field">
+              <label for="profileBeats">Reporting beats (comma separated)</label>
+              <input id="profileBeats" class="input" type="text" placeholder="Investigations, Local governance" />
+            </div>
+            <div class="field">
+              <label for="profilePublications">Recent publications (one per line)</label>
+              <textarea id="profilePublications" class="textarea" placeholder="Title — Outlet"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save profile</button>
+            <button type="button" id="submitReview" class="btn btn-secondary">Submit for review</button>
+            <p id="profileStatus" class="muted"></p>
+          </form>
+        </div>
+      </div>
+
+      <aside class="profile-preview">
+        <h2>Public snapshot preview</h2>
+        <div id="profilePreview">
+          <p class="muted">Complete the form to preview your verification snapshot.</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/js/profile.js" defer></script>
+</body>
+</html>

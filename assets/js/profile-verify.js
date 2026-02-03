@@ -1,16 +1,14 @@
 const registryUrl = '/assets/data/registry.json';
 
-const verifyForm = document.getElementById('verifyForm');
-const verifyInput = document.getElementById('verifyId');
-const verificationResult = document.getElementById('verificationResult');
+const profileVerifyForm = document.getElementById('profileVerifyForm');
+const profileVerifyInput = document.getElementById('profileVerifyId');
+const profileVerifyResult = document.getElementById('profileVerifyResult');
 
-function renderResult(record, query) {
-  if (!verificationResult) {
-    return;
-  }
+function renderProfileSnapshot(record, query) {
+  if (!profileVerifyResult) return;
 
   if (!record) {
-    verificationResult.innerHTML = `
+    profileVerifyResult.innerHTML = `
       <div class="panel warning">
         <strong>Record not found.</strong>
         <p>No credential record matched <strong>${query}</strong>. Please confirm the ID and try again.</p>
@@ -22,32 +20,24 @@ function renderResult(record, query) {
   const profile = record.profile || {};
   const beats = profile.beats || [];
   const publications = profile.publications || [];
-  const snapshotLink = `/profiles/verify/?id=${encodeURIComponent(record.id)}`;
 
-  verificationResult.innerHTML = `
-    <div class="panel">
-      <h2>Official Verification Record</h2>
-      <p><strong>Name:</strong> ${record.name}</p>
-      <p><strong>Credential:</strong> ${record.credential}</p>
-      <p><strong>ID:</strong> ${record.id}</p>
-      <p><strong>Status:</strong> ${record.status}</p>
-      <p><strong>Issued:</strong> ${record.issued}</p>
-      <p><strong>Review:</strong> ${record.review}</p>
-      <p><strong>Scope:</strong> ${record.scope}</p>
-      <p><strong>Notes:</strong> ${record.notes}</p>
-      <p><a href="${snapshotLink}">View credential profile snapshot</a></p>
-    </div>
-    <div class="profile-card section-gap">
-      <h3>Public profile snapshot</h3>
-      <p>${profile.headline || record.scope}</p>
+  profileVerifyResult.innerHTML = `
+    <div class="profile-card">
+      <h2>${record.name}</h2>
+      <div class="profile-meta">
+        <span><strong>Credential:</strong> ${record.credential}</span>
+        <span><strong>Status:</strong> ${record.status}</span>
+        <span><strong>ID:</strong> ${record.id}</span>
+      </div>
+      <p>${profile.headline || record.scope || 'Verified journalist profile.'}</p>
       <div class="section-gap">
-        <h4>Reporting beats</h4>
+        <h3>Reporting beats</h3>
         <div class="tag-list">
           ${beats.length ? beats.map((beat) => `<span class="tag">${beat}</span>`).join('') : '<span class="tag">Not listed</span>'}
         </div>
       </div>
       <div class="section-gap">
-        <h4>Recent publications</h4>
+        <h3>Recent publications</h3>
         <ul>
           ${publications.length ? publications.map((item) => `<li>${item}</li>`).join('') : '<li>No publications listed.</li>'}
         </ul>
@@ -64,9 +54,7 @@ function findRecord(id, data) {
 
 function loadAndRender(id) {
   if (!id) {
-    if (verificationResult) {
-      verificationResult.innerHTML = '';
-    }
+    if (profileVerifyResult) profileVerifyResult.innerHTML = '';
     return;
   }
 
@@ -74,10 +62,10 @@ function loadAndRender(id) {
     .then((response) => response.json())
     .then((data) => {
       const record = findRecord(id, data);
-      renderResult(record, id);
+      renderProfileSnapshot(record, id);
     })
     .catch(() => {
-      renderResult(null, id);
+      renderProfileSnapshot(null, id);
     });
 }
 
@@ -91,10 +79,10 @@ function updateQueryString(id) {
   window.history.replaceState({}, '', url);
 }
 
-if (verifyForm && verifyInput) {
-  verifyForm.addEventListener('submit', (event) => {
+if (profileVerifyForm && profileVerifyInput) {
+  profileVerifyForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const id = verifyInput.value.trim();
+    const id = profileVerifyInput.value.trim();
     updateQueryString(id);
     loadAndRender(id);
   });
@@ -102,8 +90,8 @@ if (verifyForm && verifyInput) {
 
 const params = new URLSearchParams(window.location.search);
 const idParam = params.get('id');
-if (idParam && verifyInput) {
-  verifyInput.value = idParam;
+if (idParam && profileVerifyInput) {
+  profileVerifyInput.value = idParam;
 }
 if (idParam) {
   loadAndRender(idParam);

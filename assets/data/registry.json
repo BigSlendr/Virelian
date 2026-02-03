@@ -11,7 +11,17 @@
       "review": "2027-06-01",
       "scope": "Independent journalism, editorial standards, and verification policy.",
       "notes": "Founding registry record.",
-      "public_profile": ""
+      "public_profile": "",
+      "profile": {
+        "headline": "Investigative and public-interest reporting with a focus on accountability.",
+        "beats": ["Investigations", "Local governance", "Media integrity"],
+        "publications": [
+          "Transparency in newsroom verification — Virelian Brief",
+          "Independent credentialing models — Media Review",
+          "Building trust in freelance reporting — Field Notes"
+        ],
+        "updated": "2026-02-01"
+      }
     }
   ]
 }
