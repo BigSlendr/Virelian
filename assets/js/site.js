@@ -2,6 +2,18 @@
 // Handles interactions, smooth scrolling, and UX enhancements
 
 document.addEventListener('DOMContentLoaded', function() {
+  // Highlight current navigation item
+  const currentPath = window.location.pathname.replace(/index\.html$/, '');
+  document.querySelectorAll('.site-nav a').forEach(link => {
+    const linkPath = new URL(link.href, window.location.origin).pathname.replace(/index\.html$/, '');
+    const normalizedLink = linkPath.endsWith('/') ? linkPath : `${linkPath}/`;
+    const normalizedCurrent = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+
+    if (normalizedLink === normalizedCurrent) {
+      link.classList.add('is-active');
+      link.setAttribute('aria-current', 'page');
+    }
+  });
   
   // Smooth scroll to anchors
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
