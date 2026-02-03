@@ -23,24 +23,24 @@
     <section class="content">
       <div class="container portal-grid">
         <div>
-          <div class="card auth-card">
-            <h2 class="auth-heading">Sign in</h2>
-          <form id="signInForm">
-            <div class="field">
-              <label for="signInEmail">Email</label>
-              <input id="signInEmail" class="input" type="email" placeholder="you@newsroom.com" required />
-            </div>
-            <div class="field">
-              <label for="signInPassword">Password</label>
-              <input id="signInPassword" class="input" type="password" placeholder="••••••••" required />
-            </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            <p id="signInStatus" class="muted auth-note"></p>
-          </form>
+          <div class="card panel auth-card">
+            <h2 class="section-title auth-heading">Sign in</h2>
+            <form id="signInForm">
+              <div class="field">
+                <label for="signInEmail">Email</label>
+                <input id="signInEmail" class="input" type="email" placeholder="you@newsroom.com" required />
+              </div>
+              <div class="field">
+                <label for="signInPassword">Password</label>
+                <input id="signInPassword" class="input" type="password" placeholder="••••••••" required />
+              </div>
+              <button type="submit" class="btn btn-primary">Sign in</button>
+              <p id="signInStatus" class="muted auth-note"></p>
+            </form>
           </div>
 
-          <div class="card section-gap">
-            <h2>Profile details</h2>
+          <div class="card panel section-gap">
+            <h2 class="section-title">Profile details</h2>
             <form id="profileForm">
               <div class="field">
                 <label for="profileName">Full name</label>
@@ -74,7 +74,21 @@
         </div>
 
         <aside class="profile-preview">
-          <h2 class="section-title">Public snapshot preview</h2>
+          <div class="card panel summary-card">
+            <div class="summary-header">
+              <h2 class="section-title">Credential summary</h2>
+              <span id="credentialStatus" class="badge">Profile draft</span>
+            </div>
+            <p class="muted">Credential ID: <span id="credentialSummaryId">—</span></p>
+            <p class="muted">Last updated: <span id="credentialSummaryUpdated">—</span></p>
+            <div class="section-gap">
+              <h3 class="section-title">Recent publications</h3>
+              <ul id="credentialSummaryPublications" class="summary-list">
+                <li class="muted">No publications listed.</li>
+              </ul>
+            </div>
+          </div>
+          <h2 class="section-title section-gap">Public snapshot preview</h2>
           <div id="profilePreview">
             <p class="muted">Complete the form to preview your verification snapshot.</p>
           </div>

@@ -47,6 +47,10 @@
 						<input id="fullName" name="fullName" class="input" type="text" required />
 					</div>
 					<div class="field">
+						<label for="email">Email</label>
+						<input id="email" name="email" class="input" type="email" placeholder="you@newsroom.com" required />
+					</div>
+					<div class="field">
 						<label for="location">Location</label>
 						<input id="location" name="location" class="input" type="text" required />
 					</div>
@@ -66,7 +70,8 @@
 						<label for="statement">Statement</label>
 						<textarea id="statement" name="statement" class="textarea" required></textarea>
 					</div>
-					<a id="applyMailto" class="btn btn-primary" href="mailto:registry@virelian.org?subject=Virelian%20Verification%20Application">Email Application</a>
+					<button type="submit" class="btn btn-primary">Submit application</button>
+					<p id="applyStatus" class="muted"></p>
 				</form>
 			</div>
 		</section>
