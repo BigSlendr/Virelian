@@ -9,58 +9,66 @@
 </head>
 <body>
 	<div data-include="/partials/header.html"></div>
-	<main class="container" role="main">
+	<main role="main">
 		<section class="hero">
-			<p class="eyebrow">Registry</p>
-			<h1>Apply for Verification</h1>
-			<p class="lede">Submit a verification request with clear documentation and professional context.</p>
+			<div class="container">
+				<p class="eyebrow">Registry</p>
+				<h1>Apply for Verification</h1>
+				<p class="lede">Submit a verification request with clear documentation and professional context.</p>
+			</div>
 		</section>
 		<hr class="rule" />
 		<section class="content">
-			<h2>Eligibility</h2>
-			<p>Applicants must demonstrate independent journalism activity, adherence to professional ethics, and a verifiable body of work.</p>
-			<h2>Required Materials</h2>
-			<ul>
-				<li>Proof of identity and location.</li>
-				<li>Portfolio links to recent work.</li>
-				<li>Professional role and primary beat.</li>
-				<li>Statement of editorial standards and accountability.</li>
-			</ul>
-			<h2>Review Process</h2>
-			<p>Submissions are reviewed for documentation completeness, ethics alignment, and professional history. Additional verification may be requested.</p>
-			<h2>Timelines</h2>
-			<p>Initial reviews are typically completed within 30 business days.</p>
+			<div class="container">
+				<h2 class="section-title">Eligibility</h2>
+				<p>Applicants must demonstrate independent journalism activity, adherence to professional ethics, and a verifiable body of work.</p>
+				<h2 class="section-title section-gap">Required Materials</h2>
+				<ul>
+					<li>Proof of identity and location.</li>
+					<li>Portfolio links to recent work.</li>
+					<li>Professional role and primary beat.</li>
+					<li>Statement of editorial standards and accountability.</li>
+				</ul>
+				<h2 class="section-title section-gap">Review Process</h2>
+				<p>Submissions are reviewed for documentation completeness, ethics alignment, and professional history. Additional verification may be requested.</p>
+				<h2 class="section-title section-gap">Timelines</h2>
+				<p>Initial reviews are typically completed within 30 business days.</p>
 
-			<hr class="rule" />
+				<hr class="rule" />
 
-			<h2>Application Form</h2>
-			<form id="applyForm" class="card panel">
-				<div class="field">
-					<label for="fullName">Full Name</label>
-					<input id="fullName" name="fullName" class="input" type="text" required />
-				</div>
-				<div class="field">
-					<label for="location">Location</label>
-					<input id="location" name="location" class="input" type="text" required />
-				</div>
-				<div class="field">
-					<label for="role">Role</label>
-					<input id="role" name="role" class="input" type="text" placeholder="Journalist, freelancer, editor" required />
-				</div>
-				<div class="field">
-					<label for="portfolio">Portfolio Links</label>
-					<textarea id="portfolio" name="portfolio" class="textarea" required></textarea>
-				</div>
-				<div class="field">
-					<label for="outlets">Outlet/Clients (optional)</label>
-					<textarea id="outlets" name="outlets" class="textarea"></textarea>
-				</div>
-				<div class="field">
-					<label for="statement">Statement</label>
-					<textarea id="statement" name="statement" class="textarea" required></textarea>
-				</div>
-				<a id="applyMailto" class="btn btn-primary" href="mailto:registry@virelian.org?subject=Virelian%20Verification%20Application">Email Application</a>
-			</form>
+				<h2 class="section-title section-gap">Application Form</h2>
+				<form id="applyForm" class="card panel">
+					<div class="field">
+						<label for="credentialId">Credential ID</label>
+						<input id="credentialId" name="credentialId" class="input" type="text" readonly />
+					</div>
+					<div class="field">
+						<label for="fullName">Full Name</label>
+						<input id="fullName" name="fullName" class="input" type="text" required />
+					</div>
+					<div class="field">
+						<label for="location">Location</label>
+						<input id="location" name="location" class="input" type="text" required />
+					</div>
+					<div class="field">
+						<label for="role">Role</label>
+						<input id="role" name="role" class="input" type="text" placeholder="Journalist, freelancer, editor" required />
+					</div>
+					<div class="field">
+						<label for="portfolio">Portfolio Links</label>
+						<textarea id="portfolio" name="portfolio" class="textarea" required></textarea>
+					</div>
+					<div class="field">
+						<label for="outlets">Outlet/Clients (optional)</label>
+						<textarea id="outlets" name="outlets" class="textarea"></textarea>
+					</div>
+					<div class="field">
+						<label for="statement">Statement</label>
+						<textarea id="statement" name="statement" class="textarea" required></textarea>
+					</div>
+					<a id="applyMailto" class="btn btn-primary" href="mailto:registry@virelian.org?subject=Virelian%20Verification%20Application">Email Application</a>
+				</form>
+			</div>
 		</section>
 	</main>
 	<div data-include="/partials/footer.html"></div>

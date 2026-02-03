@@ -17,8 +17,25 @@ const fields = {
 
 const submitReviewButton = document.getElementById('submitReview');
 
-const STORAGE_KEY = 'virelianProfile';
 const SIGNIN_KEY = 'virelianProfileSignIn';
+const USERS_KEY = 'virelianProfileUsers';
+const DEFAULT_EMAIL = 'local@virelian.org';
+const CREDENTIAL_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+
+let currentEmail = localStorage.getItem(SIGNIN_KEY) || DEFAULT_EMAIL;
+
+function generateCredentialID() {
+  const values = new Uint32Array(7);
+  if (window.crypto?.getRandomValues) {
+    window.crypto.getRandomValues(values);
+  } else {
+    for (let i = 0; i < values.length; i += 1) {
+      values[i] = Math.floor(Math.random() * CREDENTIAL_CHARS.length);
+    }
+  }
+
+  return Array.from(values, (value) => CREDENTIAL_CHARS[value % CREDENTIAL_CHARS.length]).join('');
+}
 
 function parseList(value) {
   if (!value) return [];
@@ -74,14 +91,38 @@ function getProfileData() {
   };
 }
 
-function loadStoredProfile() {
+function loadUsers() {
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return null;
-    return JSON.parse(stored);
+    const stored = localStorage.getItem(USERS_KEY);
+    if (!stored) return {};
+    return JSON.parse(stored) || {};
   } catch {
-    return null;
+    return {};
   }
+}
+
+function saveUsers(users) {
+  localStorage.setItem(USERS_KEY, JSON.stringify(users));
+}
+
+function ensureUser(users, email) {
+  if (!users[email]) {
+    users[email] = {
+      email,
+      credential: generateCredentialID(),
+      name: '',
+      outlet: '',
+      bio: '',
+      beats: '',
+      publications: ''
+    };
+  }
+
+  if (!users[email].credential) {
+    users[email].credential = generateCredentialID();
+  }
+
+  return users[email];
 }
 
 function populateForm(data) {
@@ -104,17 +145,23 @@ if (signInForm && signInEmail && signInStatus) {
     event.preventDefault();
     const email = signInEmail.value.trim();
     if (!email) return;
+    const users = loadUsers();
+    currentEmail = email;
     localStorage.setItem(SIGNIN_KEY, email);
+    const user = ensureUser(users, email);
+    saveUsers(users);
+    populateForm(user);
+    renderPreview(user);
     signInStatus.textContent = `Signed in as ${email}.`;
   });
 }
 
 if (profileForm) {
-  const storedProfile = loadStoredProfile();
-  if (storedProfile) {
-    populateForm(storedProfile);
-    renderPreview(storedProfile);
-  }
+  const users = loadUsers();
+  const activeUser = ensureUser(users, currentEmail);
+  saveUsers(users);
+  populateForm(activeUser);
+  renderPreview(activeUser);
 
   profileForm.addEventListener('input', () => {
     renderPreview(getProfileData());
@@ -122,9 +169,18 @@ if (profileForm) {
 
   profileForm.addEventListener('submit', (event) => {
     event.preventDefault();
+    const usersUpdate = loadUsers();
     const data = getProfileData();
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    renderPreview(data);
+    const user = ensureUser(usersUpdate, currentEmail);
+    const updated = {
+      ...user,
+      ...data,
+      email: currentEmail,
+      credential: data.credential || user.credential || generateCredentialID()
+    };
+    usersUpdate[currentEmail] = updated;
+    saveUsers(usersUpdate);
+    renderPreview(updated);
     if (profileStatus) {
       profileStatus.textContent = 'Profile saved locally in this browser.';
     }

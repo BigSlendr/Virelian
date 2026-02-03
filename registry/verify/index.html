@@ -9,23 +9,27 @@
 </head>
 <body>
 	<div data-include="/partials/header.html"></div>
-	<main class="container" role="main">
+	<main role="main">
 		<section class="hero">
-			<p class="eyebrow">Registry</p>
-			<h1>Credential Verification</h1>
-			<p class="lede">Confirm credential status directly against the published Virelian registry.</p>
+			<div class="container">
+				<p class="eyebrow">Registry</p>
+				<h1>Credential Verification</h1>
+				<p class="lede">Confirm credential status directly against the published Virelian registry.</p>
+			</div>
 		</section>
 		<hr class="rule" />
 		<section class="content">
-			<form id="verifyForm" class="verify-row">
-				<div class="field">
-					<label for="verifyId">Credential ID</label>
-					<input id="verifyId" class="input" type="text" placeholder="Enter credential ID" />
-				</div>
-				<button type="submit" class="btn btn-primary">Verify</button>
-			</form>
-			<div id="verificationResult"></div>
-			<p class="disclaimer">Only verification records published on virelian.org are authoritative.</p>
+			<div class="container">
+				<form id="verifyForm" class="verify-row">
+					<div class="field">
+						<label for="verifyId">Credential ID</label>
+						<input id="verifyId" class="input" type="text" placeholder="Enter credential ID" />
+					</div>
+					<button type="submit" class="btn btn-primary">Verify</button>
+				</form>
+				<div id="verificationResult"></div>
+				<p class="disclaimer">Only verification records published on virelian.org are authoritative.</p>
+			</div>
 		</section>
 	</main>
 	<div data-include="/partials/footer.html"></div>

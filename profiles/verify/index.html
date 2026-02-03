@@ -9,25 +9,29 @@
 </head>
 <body>
   <div data-include="/partials/header.html"></div>
-  <main class="container" role="main">
+  <main role="main">
     <section class="hero">
-      <p class="eyebrow">Verification</p>
-      <h1>Credential profile snapshot</h1>
-      <p class="lede">A slim version of the credentialed profile designed for fast verification.</p>
+      <div class="container">
+        <p class="eyebrow">Verification</p>
+        <h1>Credential profile snapshot</h1>
+        <p class="lede">A slim version of the credentialed profile designed for fast verification.</p>
+      </div>
     </section>
 
     <hr class="rule" />
 
     <section class="content">
-      <form id="profileVerifyForm" class="verify-row">
-        <div class="field">
-          <label for="profileVerifyId">Credential ID</label>
-          <input id="profileVerifyId" class="input" type="text" placeholder="Enter credential ID" />
-        </div>
-        <button type="submit" class="btn btn-primary">View snapshot</button>
-      </form>
-      <div id="profileVerifyResult"></div>
-      <p class="disclaimer">Snapshots are derived from the Virelian registry and are read-only.</p>
+      <div class="container">
+        <form id="profileVerifyForm" class="verify-row">
+          <div class="field">
+            <label for="profileVerifyId">Credential ID</label>
+            <input id="profileVerifyId" class="input" type="text" placeholder="Enter credential ID" />
+          </div>
+          <button type="submit" class="btn btn-primary">View snapshot</button>
+        </form>
+        <div id="profileVerifyResult"></div>
+        <p class="disclaimer">Snapshots are derived from the Virelian registry and are read-only.</p>
+      </div>
     </section>
   </main>
   <div data-include="/partials/footer.html"></div>
