@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reporter Profile — Virelian</title>
+  <div data-include="/partials/head.html"></div>
+  <meta property="og:title" content="Reporter Profile — Virelian">
+  <meta property="og:description" content="Maintain your credential profile and review your public snapshot.">
+  <meta property="og:url" content="https://virelian.org/profiles/profile/">
+  <script src="/assets/js/includes.js" defer></script>
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+  <main role="main">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Reporter Portal</p>
+        <h1>Reporter Profile</h1>
+        <p class="lede">Maintain your credential profile and manage your public snapshot.</p>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="content">
+      <div class="container portal-grid">
+        <div>
+          <div class="card panel">
+            <h2 class="section-title">Maintain your credential profile</h2>
+            <form id="profileForm">
+              <div class="field">
+                <label for="profileName">Full name</label>
+                <input id="profileName" class="input" type="text" placeholder="Full name" required />
+              </div>
+              <div class="field">
+                <label for="profileCredential">Credential ID</label>
+                <input id="profileCredential" class="input" type="text" placeholder="V7K4M2Q" required />
+              </div>
+              <div class="field">
+                <label for="profileOutlet">Primary outlet</label>
+                <input id="profileOutlet" class="input" type="text" placeholder="Independent" />
+              </div>
+              <div class="field">
+                <label for="profileBio">Short bio</label>
+                <textarea id="profileBio" class="textarea" placeholder="Short professional bio"></textarea>
+              </div>
+              <div class="field">
+                <label for="profileBeats">Reporting beats (comma separated)</label>
+                <input id="profileBeats" class="input" type="text" placeholder="Investigations, Local governance" />
+              </div>
+              <div class="field">
+                <label for="profilePublications">Recent publications (one per line)</label>
+                <textarea id="profilePublications" class="textarea" placeholder="Title — Outlet"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Save profile</button>
+              <button type="button" id="submitReview" class="btn btn-secondary">Submit for review</button>
+              <p id="profileStatus" class="muted"></p>
+            </form>
+          </div>
+        </div>
+
+        <aside class="profile-preview">
+          <div class="card panel summary-card">
+            <div class="summary-header">
+              <h2 class="section-title">Credential summary</h2>
+              <span id="credentialStatus" class="badge">Profile draft</span>
+            </div>
+            <p class="muted">Credential ID: <span id="credentialSummaryId">—</span></p>
+            <p class="muted">Last updated: <span id="credentialSummaryUpdated">—</span></p>
+            <div class="section-gap">
+              <h3 class="section-title">Recent publications</h3>
+              <ul id="credentialSummaryPublications" class="summary-list">
+                <li class="muted">No publications listed.</li>
+              </ul>
+            </div>
+          </div>
+          <h2 class="section-title section-gap">Public snapshot preview</h2>
+          <div id="profilePreview">
+            <p class="muted">Complete the form to preview your verification snapshot.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/js/profile.js" defer></script>
+</body>
+</html>

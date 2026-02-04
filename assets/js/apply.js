@@ -1,5 +1,4 @@
 const applyForm = document.getElementById('applyForm');
-const credentialField = document.getElementById('credentialId');
 const applyStatus = document.getElementById('applyStatus');
 
 const CREDENTIAL_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -19,6 +18,7 @@ function generateCredentialID() {
 
 async function submitApplication(form) {
   const payload = Object.fromEntries(new FormData(form).entries());
+  payload.credentialId = generateCredentialID();
 
   const response = await fetch('/api/sendApplicationEmail', {
     method: 'POST',
@@ -37,10 +37,6 @@ async function submitApplication(form) {
 }
 
 if (applyForm) {
-  if (credentialField) {
-    credentialField.value = generateCredentialID();
-  }
-
   applyForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (applyStatus) {
@@ -53,9 +49,6 @@ if (applyForm) {
         applyStatus.textContent = 'Application submitted. A confirmation email has been sent.';
       }
       applyForm.reset();
-      if (credentialField) {
-        credentialField.value = generateCredentialID();
-      }
     } catch (error) {
       if (applyStatus) {
         applyStatus.textContent = error.message || 'Unable to submit the application.';

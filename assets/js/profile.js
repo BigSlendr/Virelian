@@ -23,10 +23,9 @@ const submitReviewButton = document.getElementById('submitReview');
 
 const SIGNIN_KEY = 'virelianProfileSignIn';
 const USERS_KEY = 'virelianProfileUsers';
-const DEFAULT_EMAIL = 'local@virelian.org';
 const CREDENTIAL_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
-let currentEmail = localStorage.getItem(SIGNIN_KEY) || DEFAULT_EMAIL;
+let currentEmail = '';
 let reviewRequested = false;
 
 function generateCredentialID() {
@@ -183,22 +182,26 @@ if (signInForm && signInEmail && signInStatus) {
     const users = loadUsers();
     currentEmail = email;
     localStorage.setItem(SIGNIN_KEY, email);
-    const user = ensureUser(users, email);
+    ensureUser(users, email);
     saveUsers(users);
-    populateForm(user);
-    renderPreview(user);
-    renderSummary(user);
-    signInStatus.textContent = `Signed in as ${email}.`;
+    window.location.href = '/profiles/profile/';
   });
 }
 
 if (profileForm) {
-  const users = loadUsers();
-  const activeUser = ensureUser(users, currentEmail);
-  saveUsers(users);
-  populateForm(activeUser);
-  renderPreview(activeUser);
-  renderSummary(activeUser);
+  const storedEmail = localStorage.getItem(SIGNIN_KEY);
+  if (!storedEmail) {
+    window.location.href = '/profiles/';
+  } else {
+    currentEmail = storedEmail;
+
+    const users = loadUsers();
+    const activeUser = ensureUser(users, currentEmail);
+    saveUsers(users);
+    populateForm(activeUser);
+    renderPreview(activeUser);
+    renderSummary(activeUser);
+  }
 
   profileForm.addEventListener('input', () => {
     const data = getProfileData();

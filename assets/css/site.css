@@ -63,11 +63,28 @@
 }
 
 .wordmark {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
   color: var(--ink);
+}
+
+.logo-full {
+  display: block;
+  height: 42px;
+  width: auto;
+}
+
+.logo-text {
+  display: block;
+  height: 18px;
+  width: auto;
+}
+
+.logo-seal {
+  display: block;
+  width: 48px;
+  height: 48px;
 }
 
 .site-nav {
@@ -533,17 +550,6 @@
   margin-bottom: var(--s-2);
 }
 
-.verify-row {
-  display: flex;
-  gap: var(--s-3);
-  flex-wrap: wrap;
-  align-items: flex-end;
-}
-
-.verify-row .field {
-  flex: 1 1 260px;
-  margin-bottom: 0;
-}
 
 .disclaimer {
   margin-top: var(--s-3);

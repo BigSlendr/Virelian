@@ -29,11 +29,9 @@ function renderRegistry(records) {
   }
 
   records.forEach((record) => {
-    const verifyLink = `/registry/verify/?id=${encodeURIComponent(record.id)}`;
-
     if (registryTableBody) {
       const row = document.createElement('tr');
-      row.innerHTML = `<td><a href="${verifyLink}">${record.id}</a></td>`;
+      row.innerHTML = `<td>${record.id}</td>`;
       registryTableBody.appendChild(row);
     }
   });
