@@ -31,7 +31,20 @@ function renderRegistry(records) {
   records.forEach((record) => {
     if (registryTableBody) {
       const row = document.createElement('tr');
-      row.innerHTML = `<td>${record.id}</td>`;
+      const cell = document.createElement('td');
+      const profileLink = record.public_profile?.trim();
+
+      if (profileLink) {
+        const link = document.createElement('a');
+        link.href = profileLink;
+        link.textContent = record.id;
+        link.setAttribute('aria-label', `View profile for credential ${record.id}`);
+        cell.appendChild(link);
+      } else {
+        cell.textContent = record.id;
+      }
+
+      row.appendChild(cell);
       registryTableBody.appendChild(row);
     }
   });
