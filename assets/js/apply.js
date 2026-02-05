@@ -29,6 +29,7 @@ function showStatus(title, bodyLines) {
 
 async function submitApplication(form) {
   const payload = Object.fromEntries(new FormData(form).entries());
+  delete payload.company;
 
   const response = await fetch('/api/apply', {
     method: 'POST',
