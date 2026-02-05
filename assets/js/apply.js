@@ -1,26 +1,36 @@
 const applyForm = document.getElementById('applyForm');
 const applyStatus = document.getElementById('applyStatus');
 
-const CREDENTIAL_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-
-function generateCredentialID() {
-  const values = new Uint32Array(7);
-  if (window.crypto?.getRandomValues) {
-    window.crypto.getRandomValues(values);
-  } else {
-    for (let i = 0; i < values.length; i += 1) {
-      values[i] = Math.floor(Math.random() * CREDENTIAL_CHARS.length);
-    }
+function clearStatus() {
+  if (!applyStatus) {
+    return;
   }
+  applyStatus.innerHTML = '';
+  applyStatus.hidden = true;
+}
 
-  return Array.from(values, (value) => CREDENTIAL_CHARS[value % CREDENTIAL_CHARS.length]).join('');
+function showStatus(title, bodyLines) {
+  if (!applyStatus) {
+    return;
+  }
+  applyStatus.innerHTML = '';
+  const heading = document.createElement('h3');
+  heading.textContent = title;
+  applyStatus.appendChild(heading);
+
+  bodyLines.forEach((line) => {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = line;
+    applyStatus.appendChild(paragraph);
+  });
+
+  applyStatus.hidden = false;
 }
 
 async function submitApplication(form) {
   const payload = Object.fromEntries(new FormData(form).entries());
-  payload.credentialId = generateCredentialID();
 
-  const response = await fetch('/api/sendApplicationEmail', {
+  const response = await fetch('/api/apply', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -39,20 +49,20 @@ async function submitApplication(form) {
 if (applyForm) {
   applyForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    if (applyStatus) {
-      applyStatus.textContent = 'Submitting your application...';
-    }
+    clearStatus();
 
     try {
-      await submitApplication(applyForm);
-      if (applyStatus) {
-        applyStatus.textContent = 'Application submitted. A confirmation email has been sent.';
-      }
+      const result = await submitApplication(applyForm);
+      showStatus('Application Received', [
+        'Your submission has been successfully delivered to the Virelian Registry.',
+        `Application ID: ${result.application_id}`,
+        'Our review committee will evaluate your credentials and contact you if additional information is required.'
+      ]);
       applyForm.reset();
     } catch (error) {
-      if (applyStatus) {
-        applyStatus.textContent = error.message || 'Unable to submit the application.';
-      }
+      showStatus('Submission Error', [
+        'We were unable to submit your application. Please try again shortly.'
+      ]);
     }
   });
 }
