@@ -40,35 +40,44 @@
 				<h2 class="section-title section-gap">Application Form</h2>
 				<form id="applyForm" class="card panel">
 					<div class="field">
-						<label for="fullName">Full Name</label>
-						<input id="fullName" name="fullName" class="input" type="text" required />
+						<label for="full_name">Full Name</label>
+						<input id="full_name" name="full_name" class="input" type="text" required />
 					</div>
 					<div class="field">
 						<label for="email">Email</label>
 						<input id="email" name="email" class="input" type="email" placeholder="you@newsroom.com" required />
 					</div>
 					<div class="field">
+						<label for="phone">Phone</label>
+						<input id="phone" name="phone" class="input" type="tel" required />
+					</div>
+					<div class="field">
 						<label for="location">Location</label>
 						<input id="location" name="location" class="input" type="text" required />
+					</div>
+					<div class="field">
+						<label for="affiliation">Affiliation</label>
+						<input id="affiliation" name="affiliation" class="input" type="text" placeholder="Newsroom, publication, or organization" required />
 					</div>
 					<div class="field">
 						<label for="role">Role</label>
 						<input id="role" name="role" class="input" type="text" placeholder="Journalist, freelancer, editor" required />
 					</div>
 					<div class="field">
-						<label for="portfolio">Portfolio Links</label>
-						<textarea id="portfolio" name="portfolio" class="textarea" required></textarea>
+						<label for="beats">Primary Beats</label>
+						<input id="beats" name="beats" class="input" type="text" placeholder="Investigations, public policy, technology" required />
 					</div>
 					<div class="field">
-						<label for="outlets">Outlet/Clients (optional)</label>
-						<textarea id="outlets" name="outlets" class="textarea"></textarea>
+						<label for="portfolio_links">Portfolio Links</label>
+						<textarea id="portfolio_links" name="portfolio_links" class="textarea" required></textarea>
 					</div>
 					<div class="field">
 						<label for="statement">Statement</label>
 						<textarea id="statement" name="statement" class="textarea" required></textarea>
 					</div>
+					<input id="company" name="company" class="input" type="text" autocomplete="off" tabindex="-1" aria-hidden="true" hidden />
 					<button type="submit" class="btn btn-primary">Submit application</button>
-					<p id="applyStatus" class="muted"></p>
+					<div id="applyStatus" class="card panel" hidden></div>
 				</form>
 			</div>
 		</section>
