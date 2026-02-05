@@ -1,0 +1,8 @@
+name = "virelian-api"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "virelian"
+database_id = "dfb810c4-ce11-40ac-b867-32455aa65a10"
