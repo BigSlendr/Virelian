@@ -3,17 +3,23 @@
    ============================================ */
 
 :root {
-  --paper: #ffffff;
-  --ink: #111111;
-  --muted: #4b5563;
-  --rule: #e5e7eb;
-  --rule-hover: #cbd5e1;
-  --panel: #f9fafb;
-  --accent: #0052cc;
-  --accent-hover: #003f99;
-  --accent-ink: #ffffff;
-  --accent-bg-hover: #f0f7ff;
-  --focus: #2563eb;
+  --virelian-burgundy: #5B0E14;
+  --virelian-sand: #F1E194;
+  --virelian-parchment: #FAF6E8;
+  --virelian-ink: #0B0B0C;
+  --virelian-steel: #2B2E34;
+
+  --paper: var(--virelian-parchment);
+  --ink: var(--virelian-ink);
+  --muted: color-mix(in srgb, var(--virelian-steel) 82%, white);
+  --rule: rgba(43, 46, 52, 0.15);
+  --rule-hover: rgba(43, 46, 52, 0.3);
+  --panel: #ffffff;
+  --accent: var(--virelian-burgundy);
+  --accent-hover: #431015;
+  --accent-ink: var(--virelian-parchment);
+  --accent-bg-hover: rgba(241, 225, 148, 0.2);
+  --focus: var(--virelian-burgundy);
   --danger: #b91c1c;
 
   --s-1: 4px;
@@ -64,14 +70,14 @@ img {
 }
 
 a {
-  color: var(--accent);
+  color: var(--ink);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--accent);
 }
 
 a:focus-visible,
@@ -87,7 +93,7 @@ h1, h2, h3 {
   margin: 0 0 var(--s-4) 0;
   font-weight: 700;
   line-height: 1.2;
-  color: var(--ink);
+  color: var(--accent);
 }
 
 h1 {
@@ -105,7 +111,7 @@ h3 {
 
 p {
   margin: 0 0 var(--s-4) 0;
-  color: var(--ink);
+  color: var(--muted);
 }
 
 ul,
@@ -116,7 +122,7 @@ ol {
 
 li {
   margin-bottom: var(--s-2);
-  color: var(--ink);
+  color: var(--muted);
 }
 
 .eyebrow {
@@ -152,19 +158,19 @@ li {
   background: var(--accent);
   color: var(--accent-ink);
   border-color: var(--accent);
-  box-shadow: 0 2px 6px rgba(0, 82, 204, 0.2);
+  box-shadow: 0 2px 8px rgba(91, 14, 20, 0.18);
 }
 
 .btn-primary:hover {
   background: var(--accent-hover);
-  border-color: var(--accent-hover);
+  border-color: var(--virelian-sand);
   color: var(--accent-ink);
-  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
+  box-shadow: 0 4px 12px rgba(91, 14, 20, 0.24);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: var(--paper);
+  background: transparent;
   color: var(--accent);
   border-color: var(--accent);
 }
@@ -193,12 +199,20 @@ li {
 .textarea {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(43, 46, 52, 0.3);
   border-radius: var(--radius-md);
   font-size: 1rem;
   font-family: var(--font-sans);
   background: var(--paper);
   color: var(--ink);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(91, 14, 20, 0.14);
+  outline: none;
 }
 
 .textarea {
@@ -207,11 +221,12 @@ li {
 }
 
 .card {
-  border: 2px solid var(--rule);
+  border: 1px solid var(--rule);
   border-radius: var(--radius-md);
   padding: var(--s-5);
   background: var(--paper);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(11, 11, 12, 0.04);
+  border-top: 2px solid var(--accent);
   transition: all 0.3s ease;
 }
 
@@ -241,15 +256,16 @@ li {
 .table td {
   text-align: left;
   padding: 12px;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid rgba(43, 46, 52, 0.12);
 }
 
 .table th {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--muted);
+  color: var(--accent);
   font-weight: 700;
+  border-bottom: 1px solid rgba(241, 225, 148, 0.9);
 }
 
 .badge {
@@ -259,21 +275,24 @@ li {
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 700;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
 }
 
 .badge.success {
-  color: #065f46;
-  background: #ecfdf3;
-  border-color: #bbf7d0;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
 }
 
 .panel {
-  border: 2px solid var(--rule);
+  border: 1px solid var(--rule);
   border-radius: var(--radius-md);
   padding: var(--s-5);
   background: var(--panel);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 10px rgba(11, 11, 12, 0.03);
+  border-top: 2px solid var(--accent);
 }
 
 .panel.warning {
