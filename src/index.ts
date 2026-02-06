@@ -173,11 +173,15 @@ export default {
     if (request.method === 'POST' && url.pathname === '/api/apply') {
       const data = (await request.json()) as ApplicationInput;
 
-      await sendApplicationEmails(data, env);
+      const id = crypto.randomUUID();
+      const now = new Date().toISOString();
 
       try {
         await env.DB.prepare(`
 INSERT INTO applications (
+  id,
+  created_at,
+  updated_at,
   status,
   full_name,
   email,
@@ -189,17 +193,20 @@ INSERT INTO applications (
   portfolio_links,
   statement
 )
-VALUES ('submitted', ?, ?, ?, ?, ?, ?, ?, ?, ?)
+VALUES (?, ?, ?, 'submitted', ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `)
           .bind(
+            id,
+            now,
+            now,
             data.full_name,
             data.email,
-            data.phone,
-            data.location,
-            data.affiliation,
-            data.beats,
-            data.role,
-            data.portfolio_links,
+            data.phone ?? null,
+            data.location ?? null,
+            data.affiliation ?? null,
+            data.beats ?? null,
+            data.role ?? null,
+            data.portfolio_links ?? null,
             data.statement
           )
           .run();
@@ -208,9 +215,11 @@ VALUES ('submitted', ?, ?, ?, ?, ?, ?, ?, ?, ?)
         return json({ ok: false, error: 'Database insert failed' }, 500);
       }
 
+      await sendApplicationEmails(data, env);
+
       return json({
         ok: true,
-        application_id: crypto.randomUUID()
+        application_id: id
       });
     }
 
