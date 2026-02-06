@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin Review — Virelian</title>
+  <div data-include="/partials/head.html"></div>
+  <meta name="robots" content="noindex,nofollow">
+  <script src="/assets/js/includes.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body>
+  <div data-include="/partials/header.html"></div>
+  <main role="main">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Admin</p>
+        <h1>Application Review</h1>
+        <p class="lede">Review and decide submitted credential applications.</p>
+      </div>
+    </section>
+    <hr class="rule" />
+    <section class="content">
+      <div class="container">
+        <div id="adminTokenGate" class="panel admin-panel" hidden>
+          <h2>Enter Admin Token</h2>
+          <div class="admin-controls">
+            <input id="adminTokenInput" class="input" type="password" placeholder="Bearer token" autocomplete="off">
+            <button id="saveTokenBtn" class="btn btn-primary" type="button">Save Token</button>
+          </div>
+        </div>
+
+        <div id="adminApp" class="admin-panel" hidden>
+          <div class="admin-toolbar">
+            <label for="statusFilter">Status</label>
+            <select id="statusFilter" class="input admin-select">
+              <option value="submitted">submitted</option>
+              <option value="approved">approved</option>
+              <option value="rejected">rejected</option>
+            </select>
+            <button id="refreshBtn" class="btn" type="button">Refresh</button>
+            <button id="logoutBtn" class="btn" type="button">Logout</button>
+          </div>
+
+          <p id="adminMessage" class="muted"></p>
+
+          <div class="registry-table">
+            <table class="table admin-table">
+              <thead>
+                <tr>
+                  <th>Created</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Affiliation</th>
+                  <th>Role</th>
+                  <th>Beats</th>
+                  <th>Details</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="applicationsBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-include="/partials/footer.html"></div>
+  <script src="/assets/js/admin.js" defer></script>
+</body>
+</html>

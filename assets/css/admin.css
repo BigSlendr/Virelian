@@ -1,0 +1,45 @@
+.admin-panel {
+  margin-bottom: var(--s-6);
+}
+
+.admin-controls,
+.admin-toolbar {
+  display: flex;
+  gap: var(--s-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.admin-select {
+  min-width: 170px;
+}
+
+.admin-table th,
+.admin-table td {
+  vertical-align: top;
+}
+
+.admin-details {
+  min-width: 280px;
+}
+
+.admin-notes {
+  margin-top: var(--s-2);
+}
+
+.admin-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  min-width: 190px;
+}
+
+.admin-actions .btn {
+  width: 100%;
+}
+
+.admin-credential {
+  margin-top: var(--s-2);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
