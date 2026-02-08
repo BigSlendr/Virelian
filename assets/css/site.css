@@ -21,12 +21,12 @@
 }
 
 .site-header {
-  border-bottom: 1px solid rgba(241, 225, 148, 0.45);
+  border-bottom: 2px solid rgba(241, 225, 148, 0.75);
   background: var(--virelian-ink);
   position: sticky;
   top: 0;
   z-index: 50;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 0 10px rgba(241, 225, 148, 0.18);
 }
 
 .topbar {
