@@ -2,6 +2,13 @@ name = "virelian-api"
 main = "src/index.ts"
 compatibility_date = "2024-11-01"
 
+# ✅ Enable Worker Observability (Logs)
+[observability]
+enabled = true
+
+[observability.logs]
+invocation_logs = true
+
 [[d1_databases]]
 binding = "DB"
 database_name = "virelian"
